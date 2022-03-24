@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --font-base: "Poppins", sans-serif;
+
+  --primary-color: #FFFFFF;
+  --secondary-color: #CAFEED;
+  --footer-color: #588C83;
+  --black-color: #000000;
+  --neutral-black: #151522;
+  --button-color: #435055;
+  --gray-color: #a0a0a0ce;
+  --light-blue-color: #10DDC2;
+  --card-color: #DBE5EA;
+  --card-text-color: #002661;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+}

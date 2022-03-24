@@ -1,0 +1,39 @@
+body {
+  background-color: var(--primary-color);
+  font-family: var(--font-base);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--black);
+  font-weight: 600;
+}
+
+p {
+  font-size: 17px;
+  line-height: 25.5px;
+  font-weight: 400;
+  color: var(--black-color);
+}
+
+.app-h1 {
+  font-weight: 600;
+  font-size: 50px;
+  line-height: 75px;
+  color: var(--black-color);
+}
+
+.app-container {
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.app__flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -6,8 +6,8 @@ import { Button } from '../../components/index';
 const buttonStyles = [
   {
       title: "learn more",
-      width: "300px",
-      height: "60px",
+      width: "18.75rem",
+      height: "3.75rem",
       link: "#learn-more",
       background: "var(--button-color)",
       size: "25px",
@@ -16,7 +16,7 @@ const buttonStyles = [
 
 export default function Header() {
   return (
-    <StyledHeader id="Home">
+    <StyledHeader id="home">
         <div className="app__header app-container app__flex">
           <div className="app__header-hero">
             <p className="p-blue">get vaccine, boost your health</p>

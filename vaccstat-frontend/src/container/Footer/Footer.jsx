@@ -2,6 +2,7 @@ import React from 'react';
 import { StyledFooter } from './StyledFooter.styled';
 import logo from '../../assets/logo-transparent.png';
 import arrow from '../../assets/Up arrow.png';
+import { NavLinks } from '../../components/index';
 
 export default function Footer() {
     return (
@@ -16,15 +17,7 @@ export default function Footer() {
                     </div>
                 </div>
                 <div className="app__footer-nav app__flex">
-                    <ul className="app__flex">
-                        {['Home', 'Statistics', 'Certificate', 'FAQ'].map((item) => (
-                          <li className="app__flex p-text" key={`link-${item}`}>
-                            <a className="link" href={`#${item}`}>
-                              {item}
-                            </a>
-                          </li>
-                        ))}
-                    </ul>
+                    <NavLinks />
                     <p>© 2022 VaccStat. All rights reserved.</p>
                 </div>
                 <a href="#"><img className="arrow" src={arrow} alt="" /></a>

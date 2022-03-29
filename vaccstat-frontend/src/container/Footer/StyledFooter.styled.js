@@ -7,7 +7,7 @@ export const StyledFooter = styled.footer`
     .app__footer {
         align-items: flex-start;
         justify-content: space-between;
-        height: 270px;
+        height: 16.875rem;
 
         p, li {
             color: var(--primary-color);
@@ -16,13 +16,13 @@ export const StyledFooter = styled.footer`
 
         .logo {
             justify-self: flex-start;
-            width: 250px;
-            height: 80px;
+            width: 15.625rem;
+            height: 5rem;
         }
 
         &-info {
             height: 100%;
-            width: 300px;
+            width: 18.75rem;
             flex-direction: column;
             align-items: flex-start;
             justify-content: space-between;
@@ -40,7 +40,7 @@ export const StyledFooter = styled.footer`
 
         &-nav {
             height: 100%;
-            width: 285px;
+            width: 17.813rem;
             flex-direction: column;
             align-items: flex-start;
             justify-content: space-between;

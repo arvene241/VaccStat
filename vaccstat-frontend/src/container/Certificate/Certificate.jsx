@@ -1,53 +1,60 @@
-import React from 'react';
-import { StyledCertificate } from './StyledCertificate.styled';
-import { Card, Button } from '../../components/index';
-import logo from '../../assets/VaccStat.png';
-import card1 from '../../assets/card1.png';
-import card2 from '../../assets/card2.png';
-import card3 from '../../assets/card3.png';
-
-const cardData = [
-    {
-        title: "lorem ipsum1",
-        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, corporis?",
-        img: `${card1}`,
-    },
-    {
-        title: "lorem ipsum2",
-        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, corporis?",
-        img: `${card2}`,
-    },
-    {
-        title: "lorem ipsum3",
-        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, corporis?",
-        img: `${card3}`,
-    },
-]
-
-const buttonStyles = [
-    {
-        title: "generate",
-        width: "300px",
-        height: "60px",
-        link: "#generate",
-        background: "var(--button-color)",
-        size: "25px",
-    },
-]
+import React, { useState } from 'react';
+import { PersonalInformation, VaccineDetails, VaccineVerify } from '../../components/index';
 
 export default function Certificate() {
+    const [activeStep, setActiveStep] = useState(0);
+
+    //state variables 
+    const [multiFormValues, setMultiFormValues] = useState({
+        lastName: "",
+        firstName: "",
+        middleName: "",
+        gender: "Male",
+        birthday: "",
+        firstVaccBrand: "Pfizer",
+        firstPlace: "",
+        firstDate: "",
+        secondVaccBrand: "Pfizer",
+        secondPlace: "",
+        secondDate: "",
+    });
+
+    //Navigates to the next page
+    const handleNext = () => {
+        setActiveStep((nextStep) => nextStep + 1);
+    }
+    //Navigates to the Previous page
+    const handleBack = () => {
+        setActiveStep((previousStep) => previousStep - 1);
+    }
+
+    //Handle form value state on change
+    const handleChange = (input) => (e) => {
+        setMultiFormValues({...multiFormValues, [input]: e.target.value});
+    }
+
     return (
-        <StyledCertificate>
-            <div className="app__certificate app-container app__flex">
-                <h1 className="app-h1 app__flex">Generate a <img className="logo" src={logo} alt="" /> Now!</h1>
-                <p className="w-70">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio asperiores architecto reiciendis eius debitis dolorum, magni voluptas cum id quisquam?</p>
-                <div className="app__certificate-cards app__flex">
-                    <Card data={cardData[0]}/>
-                    <Card data={cardData[1]}/>
-                    <Card data={cardData[2]}/>
-                </div>
-                <Button button={buttonStyles[0]} />
-            </div>
-        </StyledCertificate>
+        <div>
+            {activeStep === 0 && (
+                <PersonalInformation 
+                    values={multiFormValues} 
+                    handleChange={handleChange} 
+                    handle={{handleNext, handleBack}}
+                />
+            )}
+            {activeStep === 1 && (
+                <VaccineDetails 
+                    values={multiFormValues} 
+                    handleChange={handleChange}         
+                    handle={{handleNext, handleBack}} 
+                />
+            )}
+            {activeStep === 2 && (
+                <VaccineVerify 
+                    values={multiFormValues}      
+                    handle={{handleNext, handleBack}}  
+                />
+            )}                        
+        </div>
     )
 }

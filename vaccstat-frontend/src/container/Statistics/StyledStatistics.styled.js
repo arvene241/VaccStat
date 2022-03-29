@@ -9,7 +9,7 @@ export const StyledStatistics = styled.section`
     .app__statistics {
 
         &-intro {
-            width: 760px;
+            width: 47.5rem;
             padding-bottom: 20px;
         }
 
@@ -27,8 +27,8 @@ export const StyledStatistics = styled.section`
             padding-bottom: 20px;
             
             img {
-                width: 740px;
-                height: 500px;
+                width: 46.25rem;
+                height: 31.25rem;
             }
 
             &-doses {
@@ -39,8 +39,8 @@ export const StyledStatistics = styled.section`
                 .stats {
                     border-radius: 4px;
                     background-color: var(--primary-color);
-                    width: 240px;
-                    height: 230px;
+                    width: 15rem;
+                    height: 14.375rem;
                     padding: 25px;
                 }
             }

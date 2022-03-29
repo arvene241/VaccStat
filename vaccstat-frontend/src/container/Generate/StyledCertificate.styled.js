@@ -7,8 +7,8 @@ export const StyledCertificate = styled.section`
         flex-direction: column;
 
         .logo {
-            width: 200px;
-            height: 30px;
+            width: 12.5rem;
+            height: 1.875rem;
             transform: scale(1.25);
             margin: 0 40px;
         }
@@ -18,7 +18,7 @@ export const StyledCertificate = styled.section`
         }
 
         .w-70 {
-            width: 700px;
+            width: 43.75rem;
             padding-bottom: 40px;
         }
 

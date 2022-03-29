@@ -20,6 +20,17 @@ p {
   color: var(--black-color);
 }
 
+h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--black-color);
+}
+
+.p-gray {
+  font-weight: 300;
+  color: var(--gray-color);
+}
+
 .app-h1 {
   font-weight: 600;
   font-size: 50px;
@@ -36,4 +47,12 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.app__border {
+  width: 700px;
+  margin-top: 40px;
+  padding: 30px;
+  border-radius: 6px;
+  border: 2px solid var(--black-color);
 }

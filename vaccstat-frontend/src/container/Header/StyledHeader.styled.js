@@ -8,7 +8,7 @@ export const StyledHeader = styled.section`
         padding: 44px 0 60px;
 
         &-hero {
-            width: 600px;
+            width: 37.5rem;
             padding-top: calc(147px - 44px);
             
             .p-blue {
@@ -28,15 +28,13 @@ export const StyledHeader = styled.section`
             }
 
             .p-gray {
-                font-weight: 300;
-                color: var(--gray-color);
                 padding-bottom: 35px;
             }
         }
 
         img { 
-            width: 645px;
-            height: 645px;
+            width: 40.313rem;
+            height: 40.313rem;
         }
     }
 `

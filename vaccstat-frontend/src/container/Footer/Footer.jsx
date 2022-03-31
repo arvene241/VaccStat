@@ -17,7 +17,7 @@ export default function Footer() {
                     </div>
                 </div>
                 <div className="app__footer-nav app__flex">
-                    <NavLinks />
+                    <NavLinks button="false" />
                     <p>© 2022 VaccStat. All rights reserved.</p>
                 </div>
                 <a href="#"><img className="arrow" src={arrow} alt="" /></a>

@@ -14,7 +14,7 @@ const buttonStyles = [
   },
 ]
 
-export default function NavLinks() {
+export default function NavLinks(props) {
   return (
     <ul className="app__flex">
         {navbarData.map((item, index) => (
@@ -22,7 +22,7 @@ export default function NavLinks() {
             <Link className="link" to={`${item.path}`}>{item.title}</Link>
           </li>
         ))}
-        <li><Button button={buttonStyles[0]}/></li>
+        {props.button ? <li style={{cursor: "pointer"}}>Login</li> : <li><Button button={buttonStyles[0]}/></li>}
     </ul>
   )
 }

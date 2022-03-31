@@ -7,7 +7,7 @@ export default function Navbar() {
   return (
     <Nav className="app__flex">
       <div className="app__navbar app-container app__flex">
-        <a href="#home"><img className="app__navbar-logo" src={logo} alt="logo" /></a>
+        <a href="#"><img className="app__navbar-logo" src={logo} alt="logo" /></a>
         <div className="app__navbar-links">
           <NavLinks/>
         </div>

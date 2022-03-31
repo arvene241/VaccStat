@@ -1,25 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export default function Button(props) {
-    const StyledButton = styled.button`  
-        cursor: pointer;
-        padding: 3px;
-        border-radius: 4px;
-        border: none;
-    
-        background-color: ${props.button.background};
-        width: ${props.button.width};
-        height: ${props.button.height}; 
-        font-family: var(--font-base);
-        text-transform: capitalize;
-        color: var(--primary-color);
-        font-weight: 500;
-        size: ${props.button.size};
-    `
+const StyledButton = styled.button`  
+    cursor: pointer;
+    padding: 3px;
+    border-radius: 4px;
+    border: none;
 
+    background-color: ${props => props.bg};
+    width: ${props => props.w};
+    height: ${props =>props.h}; 
+    font-family: var(--font-base);
+    text-transform: capitalize;
+    color: var(--primary-color);
+    font-weight: 500;
+    size: ${props => props.size};
+`
+
+export default function Button(props) {
     return (
-        <StyledButton onClick={props.click} >
+        <StyledButton bg={props.button.background} w={props.button.width} h={props.button.height} size={props.button.size} onClick={props.click} >
             {props.button.title}
         </StyledButton>
     )

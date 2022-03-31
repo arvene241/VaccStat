@@ -20,7 +20,7 @@ export default function PersonalInformation({ values, handleChange, handle }) {
           <p>Please enter your information below. Ensure that they match the details on your vaccination card.</p>
           <h2>Personal Information</h2>
           <div>
-            <label for="lname">Last Name</label><br/>
+            <label>Last Name</label><br/>
             <input 
               type="text" 
               defaultValue={values.lastName} 
@@ -30,7 +30,7 @@ export default function PersonalInformation({ values, handleChange, handle }) {
             />
           </div>
           <div>
-            <label for="fname">First Name</label><br/>
+            <label>First Name</label><br/>
             <input 
               type="text" 
               defaultValue={values.firstName} 
@@ -40,7 +40,7 @@ export default function PersonalInformation({ values, handleChange, handle }) {
             />
           </div>
           <div>
-            <label for="mname">Middle Name</label><br/>
+            <label>Middle Name</label><br/>
             <input
               type="text" 
               defaultValue={values.middleName} 
@@ -50,7 +50,7 @@ export default function PersonalInformation({ values, handleChange, handle }) {
             />
           </div>
           <div>
-            <label for="gender">Gender</label><br/>
+            <label>Gender</label><br/>
             <select 
               id="gender" 
               defaultValue={values.gender} 
@@ -62,7 +62,7 @@ export default function PersonalInformation({ values, handleChange, handle }) {
             </select>
           </div>
           <div>
-            <label for="birthday">Birthday</label><br/>
+            <label>Birthday</label><br/>
             <input
               type="date" 
               defaultValue={values.birthday} 

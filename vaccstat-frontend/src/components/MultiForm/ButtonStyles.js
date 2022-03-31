@@ -26,5 +26,12 @@ export const ButtonStyles = [
     height: "2.5rem",
     background: "var(--button-color)",
     size: "25px",
+  },
+  {
+    title: "try again",
+    width: "25rem",
+    height: "2.7rem",
+    background: "var(--button-color)",
+    size: "25px",
   }
 ]

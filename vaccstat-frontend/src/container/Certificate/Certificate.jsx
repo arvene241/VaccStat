@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { PersonalInformation, VaccineDetails, VaccineVerify } from '../../components/index';
+import { PersonalInformation, VaccineDetails, VaccineVerify, NoRecord } from '../../components/index';
 
 export default function Certificate() {
     const [activeStep, setActiveStep] = useState(0);
@@ -28,6 +28,10 @@ export default function Certificate() {
         setActiveStep((previousStep) => previousStep - 1);
     }
 
+    const handleStart = () => {
+        setActiveStep(0);
+    }
+
     //Handle form value state on change
     const handleChange = (input) => (e) => {
         setMultiFormValues({...multiFormValues, [input]: e.target.value});
@@ -54,7 +58,13 @@ export default function Certificate() {
                     values={multiFormValues}      
                     handle={{handleNext, handleBack}}  
                 />
-            )}                        
+            )}   
+            {activeStep === 3 && (
+                <NoRecord
+                    values={multiFormValues}      
+                    handle={{handleStart}}  
+                />
+            )}             
         </div>
     )
 }

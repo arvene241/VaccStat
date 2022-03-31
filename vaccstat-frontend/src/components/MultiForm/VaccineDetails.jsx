@@ -30,7 +30,7 @@ export default function VaccineDetails({ values, handleChange, handle }) {
           <p>Please enter your vaccination details below. Please leave the filed for other dose/s blank if you are only partially vaccinated.</p>
           <h2>Vaccination Details</h2>
           <div>
-            <label for="firstVaccBrand">Vaccination Manufacturer</label><br/>
+            <label>Vaccination Manufacturer</label><br/>
             <select 
               id="firstVaccBrand" 
               defaultValue={values.firstVaccBrand} 
@@ -40,7 +40,7 @@ export default function VaccineDetails({ values, handleChange, handle }) {
             </select>
           </div>
           <div>
-            <label for="firstPlace">Place of 1st Dose Vaccination</label><br/>
+            <label>Place of 1st Dose Vaccination</label><br/>
             <select 
               className="place"
               id="firstPlace" 
@@ -52,7 +52,7 @@ export default function VaccineDetails({ values, handleChange, handle }) {
             </select>
           </div>
           <div>
-            <label for="firstDate">Date of 1st Vaccination</label><br/>
+            <label>Date of 1st Vaccination</label><br/>
             <input 
               type="date"
               defaultValue={values.firstDate} 
@@ -62,7 +62,7 @@ export default function VaccineDetails({ values, handleChange, handle }) {
           </div>
 
           <div>
-            <label for="secondVaccBrand">Vaccination Manufacturer</label><br/>
+            <label>Vaccination Manufacturer</label><br/>
             <select 
               id="secondVaccBrand" 
               defaultValue={values.secondVaccBrand} 
@@ -72,7 +72,7 @@ export default function VaccineDetails({ values, handleChange, handle }) {
             </select>
           </div>
           <div>
-            <label for="secondPlace">Place of 2nd Dose Vaccination</label><br/>
+            <label>Place of 2nd Dose Vaccination</label><br/>
             <select 
               className="place"
               id="secondPlace" 
@@ -84,7 +84,7 @@ export default function VaccineDetails({ values, handleChange, handle }) {
             </select>
           </div>
           <div>
-            <label for="secondDate">Date of 2nd Vaccination</label><br/>
+            <label>Date of 2nd Vaccination</label><br/>
             <input 
               type="date"
               defaultValue={values.secondDate} 

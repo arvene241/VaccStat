@@ -57,8 +57,9 @@ export default function PersonalInformation({ values, handleChange, handle }) {
               onChange={handleChange("gender")}
               required
             >
-              <option value="male">Male</option>
-              <option value="female">Female</option>
+              <option></option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
             </select>
           </div>
           <div>

@@ -8,6 +8,11 @@ export const StyledForm = styled.section`
         padding-top: 40px;
 
         form {  
+            
+            .johnson {
+                width: 20px;
+                height: 20px;
+            }
 
             p {
                 padding-bottom: 20px;

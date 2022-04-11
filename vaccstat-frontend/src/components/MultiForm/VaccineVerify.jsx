@@ -5,10 +5,12 @@ import { ButtonStyles } from './ButtonStyles';
 import styled from 'styled-components';
 import { db } from '../../firebase';
 
-export default function VaccineDetails({ values, handle }) {
+export default function VaccineDetails({ values, jjValues, handle, isJohnsonJohnson }) {
 
   const {firstName, middleName, lastName, gender, birthday, firstVaccBrand, firstPlace, firstDate,
     secondVaccBrand, secondPlace, secondDate} = values;
+  const {vaccBrand, place, date} = jjValues;
+
   const fullName = firstName + middleName +  lastName;
   const navigate = useNavigate();
 
@@ -41,11 +43,12 @@ export default function VaccineDetails({ values, handle }) {
 
     docRef.get().then((doc) => {
         if (doc.exists) {
-          if (doc.data().fname === firstName && doc.data().mname === middleName && doc.data().lname === lastName &&
-              doc.data().gender === gender && doc.data().birthday === birthday && doc.data().firstDate === firstDate && 
-              doc.data().firstVaccBrand === firstVaccBrand && doc.data().firstPlace === firstPlace && 
-              doc.data().secondDate === secondDate && doc.data().secondVaccBrand === secondVaccBrand && 
-              doc.data().secondPlace === secondPlace) {
+          if ((doc.data().fname === firstName && doc.data().mname === middleName && doc.data().lname === lastName &&
+              doc.data().gender === gender && doc.data().birthday === birthday) || doc.data().firstDate === firstDate ||
+              doc.data().firstVaccBrand === firstVaccBrand || doc.data().firstPlace === firstPlace ||
+              doc.data().secondDate === secondDate || doc.data().secondVaccBrand === secondVaccBrand ||
+              doc.data().secondPlace === secondPlace || doc.data().place === place || doc.data().vaccBrand === vaccBrand ||
+              doc.data().date === date) {
                 console.log("Document data:", doc.data());
                 console.log("Document data1:", doc.data().fname);
                 navigate('/');
@@ -82,7 +85,7 @@ export default function VaccineDetails({ values, handle }) {
       padding-top: 40px;
     }
 
-    .app-vaccine {
+    .app-vaccine, .app-vaccineJJ {
       justify-content: space-between;
     }
 
@@ -110,58 +113,77 @@ export default function VaccineDetails({ values, handle }) {
           <div className="app-identity app__flex">
             <div className="fname">
               <p className="p-gray">First Name</p>
-              <p>{values.firstName}</p>
+              <p>{firstName}</p>
             </div>
             <div className="mname">
               <p className="p-gray">Middle Name</p>
-              <p>{values.middleName}</p>
+              <p>{middleName}</p>
             </div>
             <div className="lname">
               <p className="p-gray">Last Name</p>
-              <p>{values.lastName}</p>
+              <p>{lastName}</p>
             </div>
           </div>
           <div className="app-gender">
             <p className="p-gray">Gender</p>
-            <p>{values.gender}</p>
+            <p>{gender}</p>
           </div>
           <div className="app-birthday">
             <p className="p-gray">Birthday</p>
-            <p>{values.birthday}</p>
+            <p>{birthday}</p>
           </div>
 
           <h2>Vaccine Details</h2>  
-          <div className="app-vaccine app__flex">
-            <div className="left">                            
+          {isJohnsonJohnson
+            ?
+            <div className="app-vaccineJJ app__flex">                            
               <div>
                 <p className="p-gray">Vaccine Manufacturer</p>
-                <p>{values.firstVaccBrand}</p>
+                <p>{vaccBrand}</p>
               </div>
               <div>
-                <p className="p-gray">Place of 1st Dose Vaccination</p>
-                <p>{values.firstPlace}</p>        
+                <p className="p-gray">Place of Vaccination</p>
+                <p>{place}</p>        
               </div>
               <div>
-                <p className="p-gray">Date of 1st Dose Vaccination</p>
-                <p>{values.firstDate}</p>        
+                <p className="p-gray">Date of Vaccination</p>
+                <p>{date}</p>        
               </div>
             </div>
+            :
+            <div className="app-vaccine app__flex">
+              <div className="left">                            
+                <div>
+                  <p className="p-gray">Vaccine Manufacturer</p>
+                  <p>{firstVaccBrand}</p>
+                </div>
+                <div>
+                  <p className="p-gray">Place of 1st Dose Vaccination</p>
+                  <p>{firstPlace}</p>        
+                </div>
+                <div>
+                  <p className="p-gray">Date of 1st Dose Vaccination</p>
+                  <p>{firstDate}</p>        
+                </div>
+              </div>
             
-            <div className="right">
-              <div>
-                <p className="p-gray">Vaccine Manufacturer</p>
-                <p>{values.secondVaccBrand}</p>
+              <div className="right">
+                <div>
+                  <p className="p-gray">Vaccine Manufacturer</p>
+                  <p>{secondVaccBrand}</p>
+                </div>
+                <div>
+                  <p className="p-gray">Place of 2nd Dose Vaccination</p>
+                  <p>{secondPlace}</p>        
+                </div>
+                <div>
+                  <p className="p-gray">Date of 2nd Dose Vaccination</p>
+                  <p>{secondDate}</p>        
+                </div>
               </div>
-              <div>
-                <p className="p-gray">Place of 2nd Dose Vaccination</p>
-                <p>{values.secondPlace}</p>        
-              </div>
-              <div>
-                <p className="p-gray">Date of 2nd Dose Vaccination</p>
-                <p>{values.secondDate}</p>        
-              </div>
-            </div>
-          </div>      
+            </div> 
+          }
+              
           <div className="prev-proceed app__flex">
             <Button button={ButtonStyles[1]} click={handle.handleBack}></Button>
             <Button button={ButtonStyles[3]} click={verify}></Button>

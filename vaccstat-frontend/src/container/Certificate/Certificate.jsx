@@ -3,21 +3,28 @@ import { PersonalInformation, VaccineDetails, VaccineVerify, NoRecord } from '..
 
 export default function Certificate() {
     const [activeStep, setActiveStep] = useState(0);
+    const [isJohnsonJohnson, setIsJohnsonJohnson] = useState();
+
+    const [jjFormValues, setJjFormValues] = useState({
+        vaccBrand: "Johnson & Johnson",
+        place: "",
+        date: "",
+    })
 
     //state variables 
     const [multiFormValues, setMultiFormValues] = useState({
         lastName: "",
         firstName: "",
         middleName: "",
-        gender: "Male",
+        gender: "",
         birthday: "",
-        firstVaccBrand: "Pfizer",
+        firstVaccBrand: "",
         firstPlace: "",
         firstDate: "",
-        secondVaccBrand: "Pfizer",
+        secondVaccBrand: "",
         secondPlace: "",
         secondDate: "",
-    });
+    })
 
     //Navigates to the next page
     const handleNext = () => {
@@ -32,9 +39,14 @@ export default function Certificate() {
         setActiveStep(0);
     }
 
+    const handleJj = (input) => (e) => {
+        setIsJohnsonJohnson(e.target.checked);
+    }
+
     //Handle form value state on change
     const handleChange = (input) => (e) => {
         setMultiFormValues({...multiFormValues, [input]: e.target.value});
+        setJjFormValues({...jjFormValues, [input]: e.target.value});
     }
 
     return (
@@ -49,13 +61,17 @@ export default function Certificate() {
             {activeStep === 1 && (
                 <VaccineDetails 
                     values={multiFormValues} 
+                    handleJj={handleJj}
                     handleChange={handleChange}         
+                    isJohnsonJohnson={isJohnsonJohnson}
                     handle={{handleNext, handleBack}} 
                 />
             )}
             {activeStep === 2 && (
                 <VaccineVerify 
-                    values={multiFormValues}      
+                    values={multiFormValues} 
+                    jjValues={jjFormValues}
+                    isJohnsonJohnson={isJohnsonJohnson}    
                     handle={{handleNext, handleBack}}  
                 />
             )}   

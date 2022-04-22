@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { PersonalInformation, VaccineDetails, VaccineVerify, NoRecord } from '../../components/index';
+import { PersonalInformation, VaccineDetails, VaccineVerify, NoRecord, AddData } from '../../components/index';
 
-export default function Certificate() {
+export default function Certificate(props) {
     const [activeStep, setActiveStep] = useState(0);
     const [isJohnsonJohnson, setIsJohnsonJohnson] = useState();
 
@@ -67,14 +67,30 @@ export default function Certificate() {
                     handle={{handleNext, handleBack}} 
                 />
             )}
+            {console.log(props.add, activeStep)}
             {activeStep === 2 && (
-                <VaccineVerify 
+                props.add
+                ? <AddData
                     values={multiFormValues} 
                     jjValues={jjFormValues}
                     isJohnsonJohnson={isJohnsonJohnson}    
                     handle={{handleNext, handleBack}}  
                 />
-            )}   
+                : <VaccineVerify
+                    values={multiFormValues} 
+                    jjValues={jjFormValues}
+                    isJohnsonJohnson={isJohnsonJohnson}    
+                    handle={{handleNext, handleBack}}  
+                />
+            )}
+            {/* {props.add && activeStep === 2 && (
+                <AddData
+                    values={multiFormValues} 
+                    jjValues={jjFormValues}
+                    isJohnsonJohnson={isJohnsonJohnson}    
+                    handle={{handleNext, handleBack}}  
+                />
+            )}    */}
             {activeStep === 3 && (
                 <NoRecord
                     values={multiFormValues}      

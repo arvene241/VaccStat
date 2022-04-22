@@ -6,3 +6,5 @@ export { default as PersonalInformation } from './MultiForm/PersonalInformation'
 export { default as VaccineDetails } from './MultiForm/VaccineDetails';
 export { default as VaccineVerify } from './MultiForm/VaccineVerify';
 export { default as NoRecord } from './MultiForm/NoRecord';
+export { default as AddData } from './MultiForm/AddData';
+export { default as RecordFound } from './MultiForm/RecordFound';

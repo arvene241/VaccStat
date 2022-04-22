@@ -10,7 +10,8 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" exact element={<Home />}/>
-          <Route path="/certificate" element={<Certificate />}/>
+          <Route path="/certificate" element={<Certificate add={false} />}/>
+          <Route path="/admin" element={<Certificate add={true} />}/>
         </Routes>
       </Router>
     </>

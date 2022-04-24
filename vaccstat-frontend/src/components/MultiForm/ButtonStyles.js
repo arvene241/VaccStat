@@ -33,5 +33,26 @@ export const ButtonStyles = [
     height: "2.7rem",
     background: "var(--button-color)",
     size: "25px",
+  },
+  {
+    title: "generate",
+    width: "100%",
+    height: "2.7rem",
+    background: "var(--button-color)",
+    size: "25px",
+  },
+  {
+    title: "update",
+    width: "100%",
+    height: "2.7rem",
+    background: "var(--gray-color)",
+    size: "25px",
+  },
+  {
+    title: "download certificate",
+    width: "600px",
+    height: "2.7rem",
+    background: "var(--button-color)",
+    size: "25px",
   }
 ]

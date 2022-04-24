@@ -46,7 +46,7 @@ export default function VaccineDetails({ values, handleChange, handleJj, isJohns
                 <select 
                   className="place"
                   id="place" 
-                  defaultValue={values.place} 
+                  defaultValue={values.jjFormValues.place} 
                   onChange={handleChange("place")}
                   required
                 >
@@ -58,7 +58,7 @@ export default function VaccineDetails({ values, handleChange, handleJj, isJohns
                 <label>Date of Vaccination</label><br/>
                 <input 
                   type="date"
-                  defaultValue={values.date} 
+                  defaultValue={values.jjFormValues.date} 
                   onChange={handleChange("date")}
                   required
                 />
@@ -71,7 +71,7 @@ export default function VaccineDetails({ values, handleChange, handleJj, isJohns
                 <label>Vaccination Manufacturer</label><br/>
                 <select 
                   id="firstVaccBrand" 
-                  defaultValue={values.firstVaccBrand} 
+                  defaultValue={values.vaccineFormValues.firstVaccBrand} 
                   onChange={handleChange("firstVaccBrand")}
                   required
                 >
@@ -84,7 +84,7 @@ export default function VaccineDetails({ values, handleChange, handleJj, isJohns
                 <select 
                   className="place"
                   id="firstPlace" 
-                  defaultValue={values.firstPlace} 
+                  defaultValue={values.vaccineFormValues.firstPlace} 
                   onChange={handleChange("firstPlace")}
                   required
                 >
@@ -96,7 +96,7 @@ export default function VaccineDetails({ values, handleChange, handleJj, isJohns
                 <label>Date of 1st Vaccination</label><br/>
                 <input 
                   type="date"
-                  defaultValue={values.firstDate} 
+                  defaultValue={values.vaccineFormValues.firstDate} 
                   onChange={handleChange("firstDate")}
                   required
                 />
@@ -106,7 +106,7 @@ export default function VaccineDetails({ values, handleChange, handleJj, isJohns
                 <label>Vaccination Manufacturer</label><br/>
                 <select 
                   id="secondVaccBrand" 
-                  defaultValue={values.secondVaccBrand} 
+                  defaultValue={values.vaccineFormValues.secondVaccBrand} 
                   onChange={handleChange("secondVaccBrand")}
                   required
                 >
@@ -119,7 +119,7 @@ export default function VaccineDetails({ values, handleChange, handleJj, isJohns
                 <select 
                   className="place"
                   id="secondPlace" 
-                  defaultValue={values.secondPlace} 
+                  defaultValue={values.vaccineFormValues.secondPlace} 
                   onChange={handleChange("secondPlace")}
                   required
                 >
@@ -131,7 +131,7 @@ export default function VaccineDetails({ values, handleChange, handleJj, isJohns
                 <label>Date of 2nd Vaccination</label><br/>
                 <input 
                   type="date"
-                  defaultValue={values.secondDate} 
+                  defaultValue={values.vaccineFormValues.secondDate} 
                   onChange={handleChange("secondDate")}
                   required
                 />

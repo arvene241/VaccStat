@@ -8,3 +8,4 @@ export { default as VaccineVerify } from './MultiForm/VaccineVerify';
 export { default as NoRecord } from './MultiForm/NoRecord';
 export { default as AddData } from './MultiForm/AddData';
 export { default as RecordFound } from './MultiForm/RecordFound';
+export { default as DownloadCertificate } from './MultiForm/DownloadCertificate';

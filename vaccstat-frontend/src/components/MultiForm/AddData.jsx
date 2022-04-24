@@ -5,38 +5,54 @@ import { ButtonStyles } from './ButtonStyles';
 import styled from 'styled-components';
 import { db } from '../../firebase';
 
-export default function VaccineDetails({ values, jjValues, handle, isJohnsonJohnson }) {
+export default function VaccineDetails({ values, handle, isJohnsonJohnson }) {
 
-  const {firstName, middleName, lastName, gender, birthday, firstVaccBrand, firstPlace, firstDate,
-    secondVaccBrand, secondPlace, secondDate} = values;
-  const {vaccBrand, place, date} = jjValues;
+  const {firstName, middleName, lastName, gender, birthday} = values.multiFormValues;
+  const {firstVaccBrand, firstPlace, firstDate, secondVaccBrand, secondPlace, secondDate}  = values.vaccineFormValues;
+  const {vaccBrand, place, date} = values.jjFormValues;
 
-  const fullName = firstName + "" + middleName + "" + lastName;
+  const fullName = firstName + " " + middleName + " " + lastName;
   const navigate = useNavigate();
 
   const proceed = () => {
-    db.collection("users").doc(fullName.toLowerCase()).set({
-      fname: firstName,
-      lname: lastName, 
-      mname: middleName,
-      birthday: birthday,
-      gender: gender,
-      firstVaccBrand: firstVaccBrand,
-      secondVaccBrand: secondVaccBrand,
-      firstDate: firstDate,
-      secondDate: secondDate,
-      firstPlace: firstPlace,
-      secondPlace: secondPlace,
-      vaccBrand: vaccBrand, 
-      place: place, 
-      date: date,
-    })
-    .then((docRef) => {
+    if (isJohnsonJohnson) {
+      db.collection("users").doc(fullName.toLowerCase()).set({
+        fname: firstName,
+        lname: lastName, 
+        mname: middleName,
+        birthday: birthday,
+        gender: gender,
+        vaccBrand: vaccBrand, 
+        place: place, 
+        date: date,
+      })
+      .then((docRef) => {
         console.log("Document written with ID: ", docRef.id);
-    })
-    .catch((error) => {
-        console.error("Error adding document: ", error);
-    });
+      })
+      .catch((error) => {
+          console.error("Error adding document: ", error);
+      });
+    } else {
+      db.collection("users").doc(fullName.toLowerCase()).set({
+        fname: firstName,
+        lname: lastName, 
+        mname: middleName,
+        birthday: birthday,
+        gender: gender,
+        firstVaccBrand: firstVaccBrand,
+        secondVaccBrand: secondVaccBrand,
+        firstDate: firstDate,
+        secondDate: secondDate,
+        firstPlace: firstPlace,
+        secondPlace: secondPlace,
+      })
+      .then((docRef) => {
+        console.log("Document written with ID: ", docRef.id);
+      })
+      .catch((error) => {
+          console.error("Error adding document: ", error);
+      });
+    }
 
     navigate("/");
   };

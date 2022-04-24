@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { PersonalInformation, VaccineDetails, VaccineVerify, NoRecord, AddData } from '../../components/index';
+import { PersonalInformation, VaccineDetails, VaccineVerify, NoRecord, RecordFound, AddData, DownloadCertificate } from '../../components/index';
 
 export default function Certificate(props) {
     const [activeStep, setActiveStep] = useState(0);
@@ -11,6 +11,15 @@ export default function Certificate(props) {
         date: "",
     })
 
+    const [vaccineFormValues, setVaccineFormValues] = useState({
+        firstVaccBrand: "",
+        firstPlace: "",
+        firstDate: "",
+        secondVaccBrand: "",
+        secondPlace: "",
+        secondDate: "",
+    })
+
     //state variables 
     const [multiFormValues, setMultiFormValues] = useState({
         lastName: "",
@@ -18,12 +27,6 @@ export default function Certificate(props) {
         middleName: "",
         gender: "",
         birthday: "",
-        firstVaccBrand: "",
-        firstPlace: "",
-        firstDate: "",
-        secondVaccBrand: "",
-        secondPlace: "",
-        secondDate: "",
     })
 
     //Navigates to the next page
@@ -33,6 +36,10 @@ export default function Certificate(props) {
     //Navigates to the Previous page
     const handleBack = () => {
         setActiveStep((previousStep) => previousStep - 1);
+    }
+
+    const handleNoRecord = () => {
+        setActiveStep(5);
     }
 
     const handleStart = () => {
@@ -45,8 +52,10 @@ export default function Certificate(props) {
 
     //Handle form value state on change
     const handleChange = (input) => (e) => {
+        isJohnsonJohnson 
+        ? setJjFormValues({...jjFormValues, [input]: e.target.value})
+        : setVaccineFormValues({...vaccineFormValues, [input]: e.target.value})
         setMultiFormValues({...multiFormValues, [input]: e.target.value});
-        setJjFormValues({...jjFormValues, [input]: e.target.value});
     }
 
     return (
@@ -60,7 +69,7 @@ export default function Certificate(props) {
             )}
             {activeStep === 1 && (
                 <VaccineDetails 
-                    values={multiFormValues} 
+                    values={{jjFormValues, vaccineFormValues}} 
                     handleJj={handleJj}
                     handleChange={handleChange}         
                     isJohnsonJohnson={isJohnsonJohnson}
@@ -71,32 +80,36 @@ export default function Certificate(props) {
             {activeStep === 2 && (
                 props.add
                 ? <AddData
-                    values={multiFormValues} 
-                    jjValues={jjFormValues}
+                    values={{multiFormValues, jjFormValues, vaccineFormValues}} 
                     isJohnsonJohnson={isJohnsonJohnson}    
                     handle={{handleNext, handleBack}}  
                 />
                 : <VaccineVerify
-                    values={multiFormValues} 
-                    jjValues={jjFormValues}
+                    values={{multiFormValues, jjFormValues, vaccineFormValues}} 
                     isJohnsonJohnson={isJohnsonJohnson}    
-                    handle={{handleNext, handleBack}}  
+                    handle={{handleNext, handleBack, handleNoRecord}}  
                 />
             )}
-            {/* {props.add && activeStep === 2 && (
-                <AddData
-                    values={multiFormValues} 
-                    jjValues={jjFormValues}
-                    isJohnsonJohnson={isJohnsonJohnson}    
-                    handle={{handleNext, handleBack}}  
-                />
-            )}    */}
             {activeStep === 3 && (
+                <RecordFound
+                    values={{multiFormValues, jjFormValues, vaccineFormValues}} 
+                    isJohnsonJohnson={isJohnsonJohnson}    
+                    handle={{handleNext, handleBack, handleNoRecord}}   
+                />
+            )}
+            {activeStep === 4 && (
+                <DownloadCertificate
+                    values={{multiFormValues, jjFormValues, vaccineFormValues}} 
+                    isJohnsonJohnson={isJohnsonJohnson}    
+                    handle={{handleNext, handleBack, handleNoRecord}}   
+                />
+            )}             
+            {activeStep === 5 && (
                 <NoRecord
                     values={multiFormValues}      
                     handle={{handleStart}}  
                 />
-            )}             
+            )}   
         </div>
     )
 }

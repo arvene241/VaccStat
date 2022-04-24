@@ -3,15 +3,14 @@ import { Button } from '../../components/index';
 import { ButtonStyles } from './ButtonStyles';
 import styled from 'styled-components';
 import { db } from '../../firebase';
-import { RecordFound } from './RecordFound';
 
-export default function VaccineDetails({ values, jjValues, handle, isJohnsonJohnson }) {
+export default function VaccineDetails({ values, handle, isJohnsonJohnson }) {
 
-  const {firstName, middleName, lastName, gender, birthday, firstVaccBrand, firstPlace, firstDate,
-    secondVaccBrand, secondPlace, secondDate} = values;
-  const {vaccBrand, place, date} = jjValues;
+  const {firstName, middleName, lastName, gender, birthday} = values.multiFormValues;
+  const {firstVaccBrand, firstPlace, firstDate, secondVaccBrand, secondPlace, secondDate}  = values.vaccineFormValues;
+  const {vaccBrand, place, date} = values.jjFormValues;
 
-  const fullName = firstName + "" + middleName + "" +  lastName;
+  const fullName = firstName + " " + middleName + " " +  lastName;
 
   const verify = () => {
     var docRef = db.collection("users").doc(fullName.toLowerCase());
@@ -19,23 +18,31 @@ export default function VaccineDetails({ values, jjValues, handle, isJohnsonJohn
 
     docRef.get().then((doc) => {
         if (doc.exists) {
-          if ((doc.data().fname === firstName && doc.data().mname === middleName && doc.data().lname === lastName &&
-              doc.data().gender === gender && doc.data().birthday === birthday) || doc.data().firstDate === firstDate ||
-              doc.data().firstVaccBrand === firstVaccBrand || doc.data().firstPlace === firstPlace ||
-              doc.data().secondDate === secondDate || doc.data().secondVaccBrand === secondVaccBrand ||
-              doc.data().secondPlace === secondPlace || doc.data().place === place || doc.data().vaccBrand === vaccBrand ||
-              doc.data().date === date) {
-                console.log("Document data:", doc.data());
-                console.log("Document data1:", doc.data().fname);
-                <RecordFound />
-          }
-          else {
-            handle.handleNext();
-            console.log('somethings wrong, we couldn\'t find you in our databse');
+          if(isJohnsonJohnson) {
+            if (doc.data().gender === gender && doc.data().birthday === birthday &&
+            doc.data().place === place && doc.data().vaccBrand === vaccBrand && doc.data().date === date) {
+              console.log("Document data:", doc.data());
+              console.log("Document data1:", doc.data().fname);
+              handle.handleNext();
+            } else {
+              handle.handleNoRecord();
+              console.log('somethings wrong, we couldn\'t find you in our database');
+            }
+          } else {
+            if (doc.data().firstDate === firstDate && doc.data().firstVaccBrand === firstVaccBrand && 
+            doc.data().firstPlace === firstPlace && doc.data().secondDate === secondDate && 
+            doc.data().secondVaccBrand === secondVaccBrand && doc.data().secondPlace === secondPlace) {
+              console.log("Document data:", doc.data());
+              console.log("Document data1:", doc.data().fname);
+              handle.handleNext();
+            } else {
+              handle.handleNoRecord();
+              console.log('somethings wrong, we couldn\'t find you in our databse');
+            }
           }
         } else {
           // doc.data() will be undefined in this case
-          handle.handleNext();
+          handle.handleNoRecord();
           console.log("No such document!");
         }
     }).catch((error) => {

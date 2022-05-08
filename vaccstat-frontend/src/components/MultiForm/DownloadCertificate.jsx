@@ -1,4 +1,6 @@
-import React from 'react';
+import { useRef } from "react";
+import html2canvas from "html2canvas";
+import { jsPDF } from "jspdf";
 import { Button } from '../index';
 import { ButtonStyles } from './ButtonStyles';
 import { StyledDownloadCertificate } from './StyledDownloadCertificate.styled';
@@ -6,7 +8,7 @@ import logo from '../../assets/logo - ver3.svg';
 import DOH from '../../assets/DOH.png';
 
 export default function DownloadCertificate({ values, isJohnsonJohnson, handle }) {
-  const {firstName, middleName, lastName, gender, birthday} = values.multiFormValues;
+  const {firstName, middleName, lastName, birthday} = values.multiFormValues;
   const {firstVaccBrand, firstPlace, firstDate, secondVaccBrand, secondPlace, secondDate}  = values.vaccineFormValues;
   const {vaccBrand, place, date} = values.jjFormValues;
 
@@ -14,13 +16,24 @@ export default function DownloadCertificate({ values, isJohnsonJohnson, handle }
 
   const fullName = firstName + " " + middleName + " " +  lastName;
 
+  const inputRef = useRef(null);
+  const printDocument = () => {
+    html2canvas(inputRef.current).then((canvas) => {
+      const imgData = canvas.toDataURL("image/png");
+      console.log(imgData);
+      const pdf = new jsPDF();
+      pdf.addImage(imgData, "JPEG", 0, 0);
+      pdf.save("vaccStat.pdf");
+    });
+  };
+
   return (
     <StyledDownloadCertificate>
       <div className="app__download app__flex app-container">
         <h1 className="app-h1">Vaccine Certificate</h1>
         <p className="p-gray">Your COVID-19 Digital Vaccination Certificate</p>
         <p className="p-text w-50"> Your digital vaccination certifice have been successfully generated. You can donwload, print or take a screenshot of your certificate below. </p>
-        <div className="flex-col app__border app__flex">
+        <div id="divToPrint" className="flex-col app__border app__flex" ref={inputRef}>
           <img className="logo" src={logo} alt="logo" />
           <p className="p-text">Your COVID-19 Digital Vaccination Certificate</p>
 
@@ -97,8 +110,7 @@ export default function DownloadCertificate({ values, isJohnsonJohnson, handle }
           </div>
         </div>
 
-        <Button button={ButtonStyles[7]}></Button>
-
+        <Button button={ButtonStyles[7]} click={printDocument}></Button>
       </div>
     </StyledDownloadCertificate>
   )

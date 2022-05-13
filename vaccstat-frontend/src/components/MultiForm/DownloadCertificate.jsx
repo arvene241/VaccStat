@@ -19,11 +19,17 @@ export default function DownloadCertificate({ values, isJohnsonJohnson, handle }
   const inputRef = useRef(null);
   const printDocument = () => {
     html2canvas(inputRef.current).then((canvas) => {
-      const imgData = canvas.toDataURL("image/png");
-      console.log(imgData);
-      const pdf = new jsPDF();
-      pdf.addImage(imgData, "JPEG", 0, 0);
-      pdf.save("vaccStat.pdf");
+      const componentWidth = inputRef.current.offsetWidth;
+      const componentHeight = inputRef.current.offsetHeight;
+  
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF('p', 'px', 'a4');
+  
+      pdf.internal.pageSize.width = componentWidth;
+      pdf.internal.pageSize.height = componentHeight;
+  
+      pdf.addImage(imgData, 'PNG', 0, 0, componentWidth, componentHeight);
+      pdf.save('vaccStat.pdf');
     });
   };
 

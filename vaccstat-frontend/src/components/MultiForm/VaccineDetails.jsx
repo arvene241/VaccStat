@@ -2,7 +2,7 @@ import React from 'react';
 import { StyledForm } from './StyledForm.styled';
 import { Button } from '../../components/index';
 import { ButtonStyles } from './ButtonStyles';
-import { cities } from './CityMunicipality';
+import { municipalities, city } from './municipalities';
 
 const vaccines = [
   {},
@@ -50,7 +50,10 @@ export default function VaccineDetails({ values, handleChange, handleJj, isJohns
                   onChange={handleChange("place")}
                   required
                 >
-                  {cities.map((city) => <option value={city}>{city}</option>)}
+                  {municipalities.map((municipality) => {
+                    var place = municipality + city[0];
+                    return <option value={place}>{place}</option>
+                  })}
                 </select>
               </div>
               
@@ -88,7 +91,10 @@ export default function VaccineDetails({ values, handleChange, handleJj, isJohns
                   onChange={handleChange("firstPlace")}
                   required
                 >
-                  {cities.map((city) => <option value={city}>{city}</option>)}
+                  {municipalities.map((municipality) => {
+                    var place = municipality + city[0];
+                    return <option value={place}>{place}</option>
+                  })}
                 </select>
               </div>
 
@@ -123,7 +129,10 @@ export default function VaccineDetails({ values, handleChange, handleJj, isJohns
                   onChange={handleChange("secondPlace")}
                   required
                 >
-                  {cities.map((city) => <option value={city}>{city}</option>)}
+                  {municipalities.map((municipality) => {
+                    var place = municipality + city[0];
+                    return <option value={place}>{place}</option>
+                  })}
                 </select>
               </div>
 

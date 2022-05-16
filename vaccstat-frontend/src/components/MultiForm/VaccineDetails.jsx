@@ -11,8 +11,7 @@ const vaccines = [
   { label: 'Moderna', value: 'Moderna' },
   { label: 'Sinovac', value: 'Sinovac' },
   { label: 'Johnson & Johnson', value: 'Johnson & Johnson' },
-  { label: 'Gamelya', value: 'Gamelya' },
-  { label: 'Sinpharm', value: 'Sinopharm' },
+  { label: 'Sinopharm', value: 'Sinopharm' },
 ];
 
 export default function VaccineDetails({ values, handleChange, handleJj, isJohnsonJohnson, handle }) {

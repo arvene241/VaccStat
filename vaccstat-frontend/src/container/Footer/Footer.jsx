@@ -10,7 +10,7 @@ export default function Footer() {
             <div className="app__footer app-container app__flex">
                 <img className="logo" src={logo} alt="" />
                 <div className="app__footer-info app__flex">
-                    <p className="app__footer-info-address">123 Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+                    <p className="app__footer-info-address">Q3MF + MPQ, Rizal Avenue<br/>  Extension,Batangas</p>
                     <div>
                         <p className="app__footer-info-contact">(+639) 123456789</p>
                         <p className="app__footer-info-email">vaccstat_bus@gmail.com</p>

@@ -111,8 +111,12 @@ export default function DownloadCertificate({ values, isJohnsonJohnson, handle }
           </table>
 
           <div className="app__disclaimer">
-            <h2>Dislaimer</h2>
-            <p className="p-gray">  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus sequi neque cum rem qui animi magni aliquam ex corrupti iste impedit asperiores provident fugiat sint consequuntur quaerat cumque placeat temporibus minus unde beatae, voluptate, eius nulla quidem? Earum, repellendus porro.</p>
+            <h2>Disclaimer</h2>
+            <p className="p-gray"> All the information on this website - vaccstat.com - is published in good faith and for general information purpose only. 
+                VaccStat does not make any warranties about the completeness, reliability and accuracy of this information. Any action you take upon the information you find on this website (VaccStat), 
+                is strictly at your own risk. VaccStat will not be liable for any losses and/or damages in connection with the use of our website. <br/><br/>
+                If you require any more information or have any questions about our site's disclaimer, please feel free to contact us by email at vaccstat_bsu@gmail.com. 
+                Our Disclaimer was generated with the help of the "Disclaimer Generator"</p>
           </div>
         </div>
 

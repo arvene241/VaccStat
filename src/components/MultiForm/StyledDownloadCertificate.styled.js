@@ -87,4 +87,8 @@ export const StyledDownloadCertificate = styled.section`
       }
     }
 
+    .fname-capitalize {
+      text-transform: capitalize;
+    }
+
 `

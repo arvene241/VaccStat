@@ -47,7 +47,7 @@ export default function DownloadCertificate({ values, isJohnsonJohnson, handle }
             <div className="info">
               <div className="full-name m-10">
                 <p><b>Full Name</b></p>
-                <p>{fullName}</p>
+                <p className="fname-capitalize">{fullName}</p>
               </div>
               <div className="app-birthday m-10">
                 <p><b>Date of Birth</b></p>

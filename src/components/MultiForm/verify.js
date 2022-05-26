@@ -4,7 +4,6 @@ export const verify = (firstName, middleName, lastName, fullName, gender, birthd
     secondVaccBrand, secondPlace, secondDate, vaccBrand, place, date, handle) => {
 
   var docRef = db.collection("users").doc(fullName.toLowerCase());
-  console.log(fullName)
 
   docRef.get().then((doc) => {
       if (doc.exists) {

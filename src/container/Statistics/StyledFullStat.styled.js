@@ -5,7 +5,6 @@ export const StyledFullStat = styled.section`
     align-content: center;
     justify-content: center;
     width: 100%;
-    margin: 80px 0 80px;
     background-color: #e5ecf0;
     
     .app__statistics {

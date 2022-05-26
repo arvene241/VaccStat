@@ -1,13 +1,8 @@
 import styled from 'styled-components';
 
 export const Nav = styled.nav`
-    position: fixed;
     height: 80px;
-    width: 100vw;
-    top: 0;
-    left: 0;
     background-color: var(--primary-color);
-    z-index: 100;
 
     .app__navbar {
         width: 100%;

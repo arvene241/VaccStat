@@ -14,7 +14,6 @@ export default function VaccineDetails({ values, handle, isJohnsonJohnson }) {
 
   const verify = () => {
     var docRef = db.collection("users").doc(fullName.toLowerCase());
-    console.log(fullName)
 
     docRef.get().then((doc) => {
         if (doc.exists) {

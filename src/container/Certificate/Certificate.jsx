@@ -76,7 +76,6 @@ export default function Certificate(props) {
                     handle={{handleNext, handleBack}} 
                 />
             )}
-            {console.log(props.add, activeStep)}
             {activeStep === 2 && (
                 props.add
                 ? <AddData

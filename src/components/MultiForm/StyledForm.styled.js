@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
 export const StyledForm = styled.section`
-    margin: 80px 0 80px;
-
     .app__form {
         flex-direction: column;
         padding-top: 40px;

@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
 export const StyledHeader = styled.section`
-    margin: 80px 0 80px;
-
     .app__header {
         justify-content: space-between !important;
         padding: 44px 0 60px;
@@ -35,6 +33,14 @@ export const StyledHeader = styled.section`
         img { 
             width: 40.313rem;
             height: 40.313rem;
+        }
+
+        .link-button {
+            width: 18.75rem;
+            height: 3.75rem;
+            background: var(--button-color);
+            size: 25px;
+            text-transform: capitalize;
         }
     }
 `

@@ -146,8 +146,7 @@ export default function VaccineDetails({ values, handleChange, handleJj, isJohns
               </div>
             </>
           }
-            
-          {console.log(values)}
+          
           <div className="verify">
             <Button button={ButtonStyles[0]}></Button>
           </div>

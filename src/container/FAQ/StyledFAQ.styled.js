@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
 export const StyledFAQ = styled.section`
-    margin: 80px 0 80px;
-
     .app__faq {
         padding-top: 40px;
 

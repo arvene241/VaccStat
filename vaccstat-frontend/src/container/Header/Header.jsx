@@ -21,7 +21,8 @@ export default function Header() {
           <div className="app__header-hero">
             <p className="p-blue">get vaccine, boost your health</p>
             <h1>with vaccination we can end this pandemic</h1>
-            <p className="p-gray">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam voluptatem, minus necessitatibus magni expedita voluptas dolore nisi? Quo, ipsum tempora.</p>
+            <p className="p-gray">Let's stop this pandemic by killing the virus with a vaccine, don't let yourself or your family get infected.
+                                 Getting a COVID-19 vaccine will help keep you from getting COVID-19.</p>
             <Button button={buttonStyles[0]}/>
           </div>
           <img src={header} alt="" />

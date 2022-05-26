@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyledStatistics } from './StyledStatistics.styled';
 import landing from '../../assets/landing-page.png';
-import graph from '../../assets/graph.png';
+import LineChart from "../../components/Charts/LineChart";
 
 export default function Statistics() {
     return (
@@ -13,22 +13,36 @@ export default function Statistics() {
                 <div className="app__statistics-filter app__flex">
                     <p>Total</p>
                     <p>Philippines</p>
-                    <p>Last 7 days</p>
+                    <p>Last 14 days</p>
                 </div>
                 <div className="app__statistics-vaccine app__flex">
-                    <img src={graph} alt="" />
                     <div className="app__statistics-vaccine-doses">
-                        <div className="stats">
-                            asdasd
+                        <div className="linechart">
+                            <LineChart />
                         </div>
-                        <div className="stats">
-                            asdasd
-                        </div>
-                        <div className="stats">
-                            asdasd
-                        </div>
-                        <div className="stats">
-                            asdasd
+                        
+
+                        <div className="col">
+                            <div className="row">
+                                <div className="stats">
+                                    <p className="title">Total Doses Administered</p>
+                                    <h1 className="value">149M</h1>
+                                </div>
+                                <div className="stats">
+                                    <p className="title">First Dose Given</p>
+                                    <h1 className="value">66M</h1>
+                                </div>
+                            </div>
+                            <div className="row">
+                            <div className="stats">
+                                    <p className="title">Second Dose Given</p>
+                                    <h1 className="value">69M</h1>
+                                </div>
+                                <div className="stats">
+                                    <p className="title">Booster Given</p>
+                                    <h1 className="value">13M</h1>
+                                </div>
+                            </div> 
                         </div>
                     </div>
                 </div>

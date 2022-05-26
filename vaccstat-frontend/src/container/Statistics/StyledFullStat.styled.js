@@ -5,11 +5,12 @@ export const StyledFullStat = styled.section`
     align-content: center;
     justify-content: center;
     width: 100%;
-    padding: 60px 0 60px;
+    margin: 80px 0 80px;
     background-color: #e5ecf0;
     
     .app__statistics {
-
+        padding-top: 40px;
+        
         .title {
             //line-height: 100%;
             font-size: 45px;

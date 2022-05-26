@@ -83,10 +83,15 @@ export const StyledStatistics = styled.section`
             }
         }
 
-        a {
+        .linkButton {
+            border: none;
+            cursor: pointer;
+            background-color: transparent;
             font-size: 20px;
             text-decoration-line: underline;
             line-height: 38px;
+            font-family: var(--font-base);
+            font-weight: 600;
         }
     }
 `

@@ -8,7 +8,7 @@ const buttonStyles = [
       title: "learn more",
       width: "18.75rem",
       height: "3.75rem",
-      link: "#learn-more",
+      link: "#certificate",
       background: "var(--button-color)",
       size: "25px",
   },
@@ -23,7 +23,7 @@ export default function Header() {
             <h1>with vaccination we can end this pandemic</h1>
             <p className="p-gray">Let's stop this pandemic by killing the virus with a vaccine, don't let yourself or your family get infected.
                                  Getting a COVID-19 vaccine will help keep you from getting COVID-19.</p>
-            <Button button={buttonStyles[0]}/>
+            <Button button={buttonStyles[0]} link={buttonStyles[0].link}/>
           </div>
           <img src={header} alt="" />
         </div>

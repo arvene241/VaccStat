@@ -20,7 +20,10 @@ const StyledButton = styled.button`
 export default function Button(props) {
     return (
         <StyledButton bg={props.button.background} w={props.button.width} h={props.button.height} size={props.button.size} onClick={props.click} >
-            {props.button.title}
+            {props.button.link 
+                ? <a href={props.link}>{props.button.title}</a>
+                : props.button.title
+            }
         </StyledButton>
     )
 }

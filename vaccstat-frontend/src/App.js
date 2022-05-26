@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import { Navbar } from './components/index';
-import { Home, Certificate, FAQ } from './container/index';
+import { Home, Certificate, FAQ, StatFullPage } from './container/index';
 
 function App() {
   return (
@@ -13,6 +13,7 @@ function App() {
           <Route path="/certificate" element={<Certificate add={false} />}/>
           <Route path="/admin" element={<Certificate add={true} />}/>
           <Route path="/faq" element={<FAQ add={false} />}/>
+          <Route path="/statistics" element={<StatFullPage add={false} />}/>
         </Routes>
       </Router>
     </>

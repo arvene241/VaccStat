@@ -8,8 +8,8 @@ import mask from "../../assets/mask.png";
 import mask2 from "../../assets/mask2.png";
 import safety from "../../assets/safety.png";
 
-
 export default function StatFullPage() {
+
     return (
         <StyledFullStat id="statistics" >
         <div className="app__statistics app-container">
@@ -80,8 +80,6 @@ export default function StatFullPage() {
             <div>
                 <p className="update">Last updated: 2022/05/26 08:00AM</p>
             </div>
-
-            
 
         </div>
     </StyledFullStat>

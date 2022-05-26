@@ -2,8 +2,15 @@ import React from 'react';
 import { StyledStatistics } from './StyledStatistics.styled';
 import landing from '../../assets/landing-page.png';
 import LineChart from "../../components/Charts/LineChart";
+import { useNavigate } from "react-router-dom";
 
 export default function Statistics() {
+    let navigate = useNavigate();
+
+    function handleClick() {
+        navigate('/statistics');
+    }
+
     return (
         <StyledStatistics id="statistics" style={{backgroundImage: `url(${landing})`}}>
             <div className="app__statistics app-container">
@@ -46,7 +53,7 @@ export default function Statistics() {
                         </div>
                     </div>
                 </div>
-                <a href="hatdog">See more</a>
+                <button className="linkButton" onClick={handleClick}>See more</button>
             </div>
         </StyledStatistics>
     )

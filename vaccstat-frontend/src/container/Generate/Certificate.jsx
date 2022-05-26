@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 import { StyledCertificate } from './StyledCertificate.styled';
 import { Card, Button } from '../../components/index';
 import logo from '../../assets/VaccStat.png';
@@ -36,6 +37,12 @@ const buttonStyles = [
 ]
 
 export default function Certificate() {
+    let navigate = useNavigate();
+
+    function handleClick() {
+        navigate('/certificate');
+    }
+
     return (
         <StyledCertificate id="certificate">
             <div className="app__certificate app-container app__flex">
@@ -47,7 +54,7 @@ export default function Certificate() {
                     <Card data={cardData[1]}/>
                     <Card data={cardData[2]}/>
                 </div>
-                <Button button={buttonStyles[0]} />
+                <Button button={buttonStyles[0]} click={handleClick}/>
             </div>
         </StyledCertificate>
     )

@@ -25,23 +25,60 @@ export const StyledStatistics = styled.section`
         &-vaccine {
             gap: 30px;
             padding-bottom: 20px;
+
             
-            img {
-                width: 46.25rem;
-                height: 31.25rem;
-            }
 
             &-doses {
                 display: flex;
-                flex-wrap: wrap;
+                //flex-wrap: wrap;
                 gap: 20px;
+
+                .linechart {
+                border-radius: 8px;
+                background-color: white;
+                width: 46.5rem;
+                height: 34rem;
+                padding: 25px;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                }
                 
                 .stats {
-                    border-radius: 4px;
-                    background-color: var(--primary-color);
-                    width: 15rem;
-                    height: 14.375rem;
+                    border-radius: 8px;
+                    background-color: white;
+                    width: 16rem;
+                    height: 16.4rem;
                     padding: 25px;
+                    text-align: center;
+                    //justify-content: center;
+                    align-items: center;
+                    vertical-align: middle;
+                    //align-content: center;
+                    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                }
+
+                .col {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                }
+
+                .row {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    gap: 20px;
+                    //padding-left: 25px;
+                }
+
+                .title {
+                    font-size: 14px;
+                    font-weight: 500;
+                    padding-top: 40px;
+                }
+
+                .value {
+                    font-size: 80px;
+                    font-weight: 500;
                 }
             }
         }

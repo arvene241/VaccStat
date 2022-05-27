@@ -5,7 +5,6 @@ import { ButtonStyles } from './ButtonStyles';
 import { municipalities, city } from './municipalities';
 
 const vaccines = [
-  {},
   { label: 'Pfizer', value: 'Pfizer' },
   { label: 'AstraZeneca', value: 'AstraZeneca' },
   { label: 'Moderna', value: 'Moderna' },

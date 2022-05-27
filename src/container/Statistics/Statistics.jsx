@@ -15,7 +15,7 @@ export default function Statistics() {
         <StyledStatistics id="statistics" style={{backgroundImage: `url(${landing})`}}>
             <div className="app__statistics app-container">
                 <h1 className="app-h1">Vaccination Statistics</h1>
-                <p className="app__statistics-intro">Philippines has administered at least 145,729,130 doses of COVID vaccines so far. 
+                <p className="app__statistics-intro">Philippines has administered at least 149, 278, 715 doses of COVID vaccines so far. 
                                                     Assuming every person needs 2 doses, that’s enough to have vaccinated about 67.4% of the country’s population.</p>
                 <div className="app__statistics-filter app__flex">
                     <p>Total</p>

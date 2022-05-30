@@ -7,16 +7,16 @@ export default function Certificate(props) {
 
     const [jjFormValues, setJjFormValues] = useState({
         vaccBrand: "Johnson & Johnson",
-        place: "",
+        place: "Agoncillo, Batangas",
         date: "",
     })
 
     const [vaccineFormValues, setVaccineFormValues] = useState({
-        firstVaccBrand: "",
-        firstPlace: "",
+        firstVaccBrand: "Pfizer",
+        firstPlace: "Agoncillo, Batangas",
         firstDate: "",
-        secondVaccBrand: "",
-        secondPlace: "",
+        secondVaccBrand: "Pfizer",
+        secondPlace: "Agoncillo, Batangas",
         secondDate: "",
     })
 
